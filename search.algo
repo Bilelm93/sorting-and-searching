@@ -1,0 +1,41 @@
+PROCEDURE inst_sort( VAR tab : ARRAY_OF INTEGER[20])
+VAR
+    i , j : INTEGER ;
+BEGIN
+	n = tab.length; 
+    i := 0 ;
+    j := 0 ;
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        key = tab[i]; 
+		j = i - 1; 
+        WHILE (j >= 0 AND tab[j] > key) DO
+            tab[j + 1] =tab[j]; 
+				j = j - 1; 
+			
+        END_WHILE
+
+        tab[j + 1] = key; 
+
+    END_FOR
+
+END
+
+
+
+
+ALGORITHM isertion_sort
+VAR
+    tab : ARRAY_OF INTEGER[20]
+    i : INTEGER ;
+BEGIN
+   
+    FOR i FROM 0 TO tab.length-1 STEP 1  DO
+        READ(tab[i]);
+    END_FOR
+
+    inst_sort(tab) 
+
+    FOR i FROM 0 TO tab.length-1 STEP 1  DO
+        WRITE("array sorted :" tab[i]);
+    END_FOR
+END
